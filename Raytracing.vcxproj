@@ -90,6 +90,7 @@
     <ClInclude Include="include\image.h" />
     <ClInclude Include="include\lodepng.h" />
     <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="include\vec3alt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

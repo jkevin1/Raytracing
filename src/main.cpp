@@ -1,6 +1,6 @@
 #include "image.h"
 #include "color.h"
-#include "vec3.h"
+#include "vec3alt.h"
 #include <boost/thread.hpp>
 #include <boost/date_time.hpp>
 #include <vector>
@@ -8,7 +8,7 @@
 void testThread(int n) {
 	printf("Test thread %d started\n", n);
 	boost::posix_time::seconds time(n);
-	boost::this_thread::sleep(time);
+	//boost::this_thread::sleep(time);
 	printf("Test thread %d complete\n", n);
 }
 
@@ -32,10 +32,12 @@ int main(int argc, char* argv[]) {
 	for (unsigned i = 0; i < threads.size(); i++) threads[i].join();
 
 	//Testing vector functions
-	Vec3 vec1;
+	Vec3 vec1(-0.5f, 0.0f, 2.0f);
 	Vec3 vec2(1.0f, -1.0f, 2.5f);
+	Vec3 cross = Vec3::cross(vec1, vec2);
 	printf("vec1: %f %f %f\n", vec1.x, vec1.y, vec1.z);
 	printf("vec2: %f %f %f\n", vec2.x, vec2.y, vec2.z);
+	printf("cross: %f %f %f\n", cross.x, cross.y, cross.z);
 
 	printf("writing final image\n");
 	image.write("test.png");
