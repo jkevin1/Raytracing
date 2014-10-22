@@ -42,9 +42,9 @@ int main(int argc, char* argv[]) {
 	//Testing vector functions
 	Vec3 v1(3.0f, 0.0f, -1.0f);
 	Vec3 v2(1.0f, -1.0f, 2.5f);
-	printf("dot: %f\n", dot(v1, v2));
-	printf("angle: %f\n", angle(v1, v2));
-	printf("cross: "); println(cross(v1, v2));
+	printf("dot: %f\n", Vec3::dot(v1, v2));
+	printf("angle: %f\n", Vec3::angle(v1, v2));
+	printf("cross: "); println(Vec3::cross(v1, v2));
 		
 	printf("writing final image\n");
 	image.write("test.png");

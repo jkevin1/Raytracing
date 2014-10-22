@@ -12,6 +12,7 @@ struct Vec3 {
 	Vec3 operator-(const Vec3& rhs) const;
 	Vec3 operator*(float rhs) const;
 	Vec3 operator/(float rhs) const;
+	Vec3 operator-() const;
 
 	Vec3& operator+=(const Vec3& rhs);
 	Vec3& operator-=(const Vec3& rhs);
@@ -51,6 +52,10 @@ inline Vec3 Vec3::operator*(float rhs) const {
 
 inline Vec3 Vec3::operator/(float rhs) const {
 	return Vec3(x / rhs, y / rhs, z / rhs);
+}
+
+inline Vec3 Vec3::operator-() const {
+	return Vec3(-x, -y, -z);
 }
 
 inline Vec3& Vec3::operator+=(const Vec3& rhs) {
