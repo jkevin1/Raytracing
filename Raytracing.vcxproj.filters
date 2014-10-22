@@ -38,7 +38,7 @@
     <ClInclude Include="include\color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vec3.h">
+    <ClInclude Include="include\vec3sse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

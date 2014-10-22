@@ -45,7 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(BOOSTDIR)\include;.\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOSTDIR)\lib\i386;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(BOOSTDIR)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,7 +89,7 @@
     <ClInclude Include="include\color.h" />
     <ClInclude Include="include\image.h" />
     <ClInclude Include="include\lodepng.h" />
-    <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="include\vec3sse.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
