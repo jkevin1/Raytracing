@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A99A8846-0D3D-412A-85E5-6B8DE6760D4A}</ProjectGuid>
+    <ProjectGuid>{D3CADE83-2EF3-4DCF-9F05-CF10E76AE0EE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Raytracing</RootNamespace>
   </PropertyGroup>
@@ -91,7 +91,7 @@
     <ClInclude Include="include\lodepng.h" />
     <ClInclude Include="include\object.h" />
     <ClInclude Include="include\vec3.h" />
-    <ClInclude Include="include\vec3alt.h" />
+    <ClInclude Include="include\vec3sse.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

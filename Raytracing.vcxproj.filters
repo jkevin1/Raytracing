@@ -41,10 +41,10 @@
     <ClInclude Include="include\vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\vec3alt.h">
+    <ClInclude Include="include\object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\object.h">
+    <ClInclude Include="include\vec3sse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
