@@ -80,15 +80,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\color.cpp" />
     <ClCompile Include="src\image.cpp" />
     <ClCompile Include="src\lodepng.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\object.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\color.h" />
     <ClInclude Include="include\image.h" />
     <ClInclude Include="include\lodepng.h" />
+    <ClInclude Include="include\object.h" />
     <ClInclude Include="include\vec3.h" />
     <ClInclude Include="include\vec3alt.h" />
   </ItemGroup>

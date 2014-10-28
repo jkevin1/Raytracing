@@ -1,6 +1,6 @@
 #include "image.h"
 #include "color.h"
-#include "vec3alt.h"
+#include "vec3.h"
 #include <boost/thread.hpp>
 #include <boost/date_time.hpp>
 #include <vector>
