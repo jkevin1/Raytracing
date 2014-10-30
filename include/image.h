@@ -1,4 +1,5 @@
-#pragma once
+#ifndef IMAGE_H
+#define IMAGE_H
 
 #include <vector>
 #include "color.h"
@@ -15,3 +16,4 @@ public:
 	void write(const char* filename);
 };
 
+#endif //IMAGE_H

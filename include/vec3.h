@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VEC3_H
+#define VEC3_H
 
 #include <math.h>
 
@@ -115,3 +116,5 @@ inline float Vec3::angle(const Vec3& lhs, const Vec3& rhs) {
 inline Vec3 Vec3::cross(const Vec3& lhs, const Vec3& rhs) {
 	return Vec3(lhs.y*rhs.z - lhs.z*rhs.y, lhs.x*rhs.z - lhs.z*rhs.x, lhs.x*rhs.y - lhs.y*rhs.x);
 }
+
+#endif //VEC3_H

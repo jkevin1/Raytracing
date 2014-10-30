@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COLOR_H
+#define COLOR_H
 
 struct Color {
 	unsigned char r, g, b, a;
@@ -25,3 +26,5 @@ inline Color::Color(float r, float g, float b, float a) {
 	this->b = (b < 0) ? 0 : (b > 1) ? 255 : (unsigned char)(b * 255);
 	this->a = (a < 0) ? 0 : (a > 1) ? 255 : (unsigned char)(a * 255);
 }
+
+#endif //COLOR_H

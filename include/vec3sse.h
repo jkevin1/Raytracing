@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VEC3SSE_H
+#define VEC3SSE_H
 
 #include <smmintrin.h>
 #include <math.h>
@@ -141,3 +142,5 @@ inline void* Vec3::operator new[](size_t num) {
 inline void operator delete[](void* ptr) {
 	if (ptr) _aligned_free(ptr);
 }
+
+#endif //VEC3SSE_H
