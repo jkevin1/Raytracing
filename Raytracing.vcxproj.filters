@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\vec3sse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -30,10 +27,19 @@
     <ClInclude Include="include\object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\intersection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vec3std.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="include\vec3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\intersection.h">
+    <ClInclude Include="include\vec3ss.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

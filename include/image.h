@@ -1,8 +1,8 @@
 #ifndef IMAGE_H
 #define IMAGE_H
 
-#include <vector>
 #include "color.h"
+#include <vector>
 
 class Image {
 	std::vector<unsigned char> pixels;

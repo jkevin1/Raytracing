@@ -86,9 +86,11 @@
     <ClInclude Include="include\image.h" />
     <ClInclude Include="include\intersection.h" />
     <ClInclude Include="include\lodepng.h" />
+    <ClInclude Include="include\material.h" />
     <ClInclude Include="include\object.h" />
     <ClInclude Include="include\vec3.h" />
-    <ClInclude Include="include\vec3sse.h" />
+    <ClInclude Include="include\vec3std.h" />
+    <ClInclude Include="include\vec3ss.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\image.cpp" />

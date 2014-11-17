@@ -1,12 +1,15 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include "vec3sse.h"
+#include "vec3.h"
+#include "material.h"
 #include "intersection.h"
 
-class Object {
-public:
-	Object(/*material properties and world info*/);
+struct Object {
+	Material mat;
+	Object* next;
+
+	Object(const Material& mat, Object* next = nullptr);
 	virtual ~Object();
 
 	virtual Intersection trace(/*ray*/) = 0;

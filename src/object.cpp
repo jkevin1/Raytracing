@@ -1,7 +1,7 @@
 #include "object.h"
 
-Object::Object() {
-
+Object::Object(const Material& mat, Object* next) : mat(mat) {
+	this->next = next;
 }
 
 Object::~Object() {
