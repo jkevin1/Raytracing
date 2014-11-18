@@ -51,6 +51,9 @@
     <ClInclude Include="include\viewport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -68,11 +71,11 @@
     <ClCompile Include="src\raytracer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\sphere.cpp">
+    <ClCompile Include="src\viewport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\viewport.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="src\sphere.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

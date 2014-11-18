@@ -85,6 +85,7 @@
     <ClInclude Include="include\color.h" />
     <ClInclude Include="include\image.h" />
     <ClInclude Include="include\intersection.h" />
+    <ClInclude Include="include\light.h" />
     <ClInclude Include="include\lodepng.h" />
     <ClInclude Include="include\material.h" />
     <ClInclude Include="include\object.h" />

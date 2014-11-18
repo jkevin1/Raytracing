@@ -1,4 +1,5 @@
 #include "sphere.h"
+#include <stdio.h>
 
 Sphere::Sphere(const Vec3& center, float rad, const Material& mat) : Object(mat) {
 	this->center = center;
@@ -6,6 +7,7 @@ Sphere::Sphere(const Vec3& center, float rad, const Material& mat) : Object(mat)
 }
 
 Intersection Sphere::intersect(const Vec3& pos, const Vec3& dir) {
+//	printf("<%f, %f, %f> <%f, %f, %f> -> <%f, %f, %f>\n", pos.x, pos.y, pos.z, dir.x, dir.y, dir.z, center.x, center.y, center.z);
 	Vec3 disp = pos - center;
 	float a = Vec3::dot(dir, dir);
 	float b = 2.0f * Vec3::dot(dir, disp);
