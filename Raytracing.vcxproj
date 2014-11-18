@@ -88,16 +88,21 @@
     <ClInclude Include="include\lodepng.h" />
     <ClInclude Include="include\material.h" />
     <ClInclude Include="include\object.h" />
+    <ClInclude Include="include\raytracer.h" />
+    <ClInclude Include="include\sphere.h" />
     <ClInclude Include="include\vec3.h" />
     <ClInclude Include="include\vec3std.h" />
     <ClInclude Include="include\vec3sse.h" />
+    <ClInclude Include="include\viewport.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\image.cpp" />
-    <ClCompile Include="src\intersection.cpp" />
     <ClCompile Include="src\lodepng.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\object.cpp" />
+    <ClCompile Include="src\raytracer.cpp" />
+    <ClCompile Include="src\sphere.cpp" />
+    <ClCompile Include="src\viewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

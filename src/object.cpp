@@ -1,9 +1,9 @@
 #include "object.h"
 
-Object::Object(const Material& mat, Object* next) : mat(mat) {
-	this->next = next;
+Object::Object(const Material& mat) : mat(mat) {
+	next = nullptr;
 }
 
 Object::~Object() {
-	//Empty destructor, virtual in case subclasses have to free memory
+	delete next;
 }

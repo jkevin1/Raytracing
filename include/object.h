@@ -9,10 +9,10 @@ struct Object {
 	Material mat;
 	Object* next;
 
-	Object(const Material& mat, Object* next = nullptr);
+	Object(const Material& mat);
 	virtual ~Object();
 
-	virtual Intersection trace(/*ray*/) = 0;
+	virtual Intersection intersect(const Vec3& pos, const Vec3& dir) = 0;
 };
 
 #endif	//OBJECT_H

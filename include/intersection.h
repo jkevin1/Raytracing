@@ -8,15 +8,28 @@
 struct Object;
 
 struct Intersection {
-	const float t;
-	const Object* obj;
+	float t;
+	Object* obj;
 	Vec3 pos, norm, view;
 
-	Intersection() : obj(nullptr), t(0.0f) { }
-	Intersection(float t, const Object* obj, const Vec3& pos, const Vec3& norm, const Vec3& view);
+	Intersection() : obj(nullptr) { }
+	Intersection(float t, Object* obj, const Vec3& pos, const Vec3& norm, const Vec3& view);
 
-	bool operator<(const Intersection& rhs);
-	Color calculateColor(/*world data*/);
+	bool exists() const;
 };
+
+inline Intersection::Intersection(float t, Object* obj, const Vec3& pos, const Vec3& norm, const Vec3& view) : obj(obj), t(t) {
+	this->pos = pos;
+	this->norm = norm;
+	this->view = view;
+}
+
+inline bool Intersection::exists() const {
+	return obj != nullptr;
+}
+
+inline bool operator<(const Intersection& lhs, const Intersection& rhs) {
+	return lhs.obj && (!rhs.obj || lhs.t < rhs.t);
+}
 
 #endif //INTERSECTION_H
