@@ -1,51 +1,65 @@
 #include "image.h"
-#include "color.h"
-#include "vec3sse.h"
-#include <boost/thread.hpp>
-#include <boost/date_time.hpp>
-#include <vector>
+#include "viewport.h"
+#include "raytracer.h"
+#include "sphere.h"
+#include <boost\thread.hpp>
+#include <boost\timer.hpp>
 
-void print(const Vec3& v) {
-	printf("<%f, %f, %f>", v.x, v.y, v.z);
+#ifdef WIN32
+#include <windows.h>
+#endif
+
+#define MULTITHREADED true
+#define WIDTH 512
+#define HEIGHT 512
+
+void renderThread(Image* image, Viewport* viewport, Raytracer* raytracer, int start, int end) {
+	for (int y = start; y < end; y++) {
+		for (int x = 0; x < WIDTH; x++) {
+			Intersection i = raytracer->trace(viewport->eye, viewport->calculateView(x, y));
+			image->pixel(x, y) = raytracer->calculateColor(i);
+		}
+	}
 }
 
-void println(const Vec3& v) {
-	printf("<%f, %f, %f>\n", v.x, v.y, v.z);
-}
-
-void testThread(int n) {
-	printf("Test thread %d started\n", n);
-	boost::posix_time::seconds time(n);
-	//boost::this_thread::sleep(time);
-	printf("Test thread %d complete\n", n);
-}
-
-//This currently just tests the image/color class and writing the image to file
+//This currently tests image, threads, and vec3 functions
 int main(int argc, char* argv[]) {
-	printf("allocating blank image\n");
-	Image image(512, 512);
-	printf("writing blank image\n");
-	image.write("blank.png");
+	//Create objects
+	printf("Loading scene");
+	Image image(WIDTH, HEIGHT);
+	Viewport viewport(image.width, image.height, Vec3(0, 0, 5), Vec3(), Vec3(0, 1, 0), 50.0f);
+	Raytracer raytracer;
+	Material mat1(Vec3(1, 0, 0), 0.5f, 0.5f, 5.0f);
+	Material mat2(Vec3(0, 1, 0), 0.5f, 0.5f, 5.0f);
+	raytracer.setBackground(Color(0.0f, 0.0f, 0.4f));
+	raytracer.addObject(new Sphere(Vec3(-1, 0, 0), 1.0f, mat1));
+	raytracer.addObject(new Sphere(Vec3(+1, 0, 0), 0.5f, mat2));
+	raytracer.addLight(new Light(Vec3(0, 4, 0)));
+	boost::timer timer;
 
-	printf("generating image\n");
-  	for(int y = 0; y < image.height; y++)
-  		for(int x = 0; x < image.width; x++)
-			image.pixel(x, y) = Color(255 * !(x & y), x ^ y, x | y, (unsigned char)255);
-	
-	//Testing threads
-	unsigned n = boost::thread::hardware_concurrency();
-	printf("Number of threads %u\n", n);
-	std::vector<boost::thread> threads(n);
-	for (unsigned i = 0; i < threads.size(); i++) threads[i] = boost::thread(testThread, i+1);
-	for (unsigned i = 0; i < threads.size(); i++) threads[i].join();
+	//Render scene
+	if (MULTITHREADED) {
+		unsigned int num_threads = boost::thread::hardware_concurrency();
+		printf("Rendering on %d threads\n", num_threads);
+		std::vector<boost::thread> threads(num_threads);
+		for (unsigned i = 0; i < threads.size(); i++) threads[i] = boost::thread(renderThread, &image, &viewport, &raytracer, i*HEIGHT / threads.size(), (i + 1)*HEIGHT / threads.size());
+		for (unsigned i = 0; i < threads.size(); i++) threads[i].join();
+	} else {
+		printf("Rendering on a single thread\n");
+		renderThread(&image, &viewport, &raytracer, 0, HEIGHT);
+	}
 
-	//Testing vector functions
-	Vec3 v1(3.0f, 0.0f, -1.0f);
-	Vec3 v2(1.0f, -1.0f, 2.5f);
-	printf("dot: %f\n", Vec3::dot(v1, v2));
-	printf("angle: %f\n", Vec3::angle(v1, v2));
-	printf("cross: "); println(Vec3::cross(v1, v2));
-		
-	printf("writing final image\n");
-	image.write("test.png");
+	//Output render time
+	printf("Elapsed time: %.2fms\n", 1000*timer.elapsed());
+
+	//Write image
+	printf("Writing image\n");
+	image.write("spheres.png");
+
+	//Show image on windows
+#ifdef WIN32
+	ShellExecute(0, 0, L"spheres.png", 0, 0, SW_SHOW);
+#endif
+
+	return 0;
 }

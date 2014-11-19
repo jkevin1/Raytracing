@@ -1,4 +1,4 @@
-*.tlog
-*.png
-*.idb
+Debug/
 *.sdf
+*.opensdf
+test.png

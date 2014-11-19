@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D3CADE83-2EF3-4DCF-9F05-CF10E76AE0EE}</ProjectGuid>
+    <ProjectGuid>{D277DABF-DCA2-4334-AB41-52AFF8F8EC8D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Raytracing</RootNamespace>
   </PropertyGroup>
@@ -41,11 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(BOOSTDIR)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOSTDIR)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(BOOSTDIR)\include;.\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOSTDIR)\lib\i386;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BOOSTDIR)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOSTDIR)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -70,7 +72,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,18 +82,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\color.h" />
+    <ClInclude Include="include\image.h" />
+    <ClInclude Include="include\intersection.h" />
+    <ClInclude Include="include\light.h" />
+    <ClInclude Include="include\lodepng.h" />
+    <ClInclude Include="include\material.h" />
+    <ClInclude Include="include\object.h" />
+    <ClInclude Include="include\raytracer.h" />
+    <ClInclude Include="include\sphere.h" />
+    <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="include\vec3std.h" />
+    <ClInclude Include="include\vec3sse.h" />
+    <ClInclude Include="include\viewport.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="src\image.cpp" />
     <ClCompile Include="src\lodepng.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\object.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\color.h" />
-    <ClInclude Include="include\image.h" />
-    <ClInclude Include="include\lodepng.h" />
-    <ClInclude Include="include\object.h" />
-    <ClInclude Include="include\vec3.h" />
-    <ClInclude Include="include\vec3sse.h" />
+    <ClCompile Include="src\raytracer.cpp" />
+    <ClCompile Include="src\sphere.cpp" />
+    <ClCompile Include="src\viewport.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

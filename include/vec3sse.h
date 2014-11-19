@@ -1,4 +1,7 @@
-#include <xmmintrin.h>
+#ifndef VEC3SSE_H
+#define VEC3SSE_H
+
+#include <smmintrin.h>
 #include <math.h>
 
 //based off this http://fastcpp.blogspot.com/2011/12/simple-vector3-class-with-sse-support.html
@@ -139,3 +142,5 @@ inline void* Vec3::operator new[](size_t num) {
 inline void operator delete[](void* ptr) {
 	if (ptr) _aligned_free(ptr);
 }
+
+#endif //VEC3SSE_H

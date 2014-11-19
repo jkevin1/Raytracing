@@ -1,7 +1,8 @@
-#pragma once
+#ifndef IMAGE_H
+#define IMAGE_H
 
-#include <vector>
 #include "color.h"
+#include <vector>
 
 class Image {
 	std::vector<unsigned char> pixels;
@@ -15,3 +16,4 @@ public:
 	void write(const char* filename);
 };
 
+#endif //IMAGE_H
