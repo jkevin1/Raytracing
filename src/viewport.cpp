@@ -19,6 +19,6 @@ Viewport::Viewport(int width, int height, const Vec3& eye, const Vec3& at, const
 
 Vec3 Viewport::calculateView(int x, int y, float x_offset, float y_offset) {
 	float u_scale = left + (right - left) * (x + x_offset) / width;
-	float v_scale = top + (bottom - top) * (y + y_offset) / height;
+	float v_scale = bottom + (top - bottom) * (y + y_offset) / height;
 	return (w * -dist) + (u * u_scale) + (v * v_scale);
 }

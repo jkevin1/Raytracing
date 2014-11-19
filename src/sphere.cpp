@@ -18,9 +18,10 @@ Intersection Sphere::intersect(const Vec3& pos, const Vec3& dir) {
 	float s = sqrtf(d);
 
 	float t = fminf((-b + s) / (2 * a), (-b - s) / (2 * a));
+	if (t <= 0.0f) return Intersection();
 	Vec3 position = pos + (dir * t);
 	Vec3 normal = (position - center).normal();
-	Vec3 view = (position - pos).normal();
+	Vec3 view = (pos - position).normal();
 
 	return Intersection(t, this, position, normal, view);
 }
